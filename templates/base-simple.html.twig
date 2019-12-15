@@ -1,0 +1,24 @@
+{% extends 'base-common.html.twig' %}
+
+{% block stylesheets %}
+    {{ encore_entry_link_tags('theme-' ~ app_style.currentTheme) }}
+    {{ parent() }}
+{% endblock %}
+
+{% block body %}
+<div id="app">
+    <b-card no-body bg-variant="light">
+        <b-container fluid>
+            <div class="body-content">
+                {% block bodycontent %}{% endblock %}
+            </div>
+            <div class="clearfix"></div>
+        </b-container>
+    </b-card>
+    {{ parent() }}
+</div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+{% endblock %}

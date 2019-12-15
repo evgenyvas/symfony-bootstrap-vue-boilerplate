@@ -1,0 +1,71 @@
+{% extends 'base-common.html.twig' %}
+
+{% block stylesheets %}
+  {{ parent() }}
+  {{ encore_entry_link_tags('app') }}
+{% endblock %}
+
+{% block body %}
+
+  {% block topsection %}
+    {# insert stuff here that should _not_ be part of the
+        Vue components, like `{{ dump() }}` statements #}
+  {% endblock %}
+
+  <div id="app" class="content-wrap">
+    {# header begin #}
+    <header id="header">
+    {% block header %}
+      {% if toolbar_menu_type is not defined %}
+        {% set toolbar_menu_type = 'main' %}
+      {% endif %}
+      <app-toolbar
+        :menu="{{ menu('toolbar', toolbar_menu_type)|json_encode }}"
+      ></app-toolbar>
+    {% endblock %}
+    </header>
+    {# header end #}
+
+    <div id="content_wrap">
+      <div id="sidebar">
+        {# sidebar begin #}
+        {% block sidebar %}{% endblock %}
+        {# sidebar end #}
+      </div>
+
+      <div id="content">
+        {# main content begin #}
+        <div class="main-content mt-2 mb-2">
+          <b-card no-body bg-variant="light" class="main-content-container">
+            <b-container fluid>
+              <div class="body-content">
+                {% block bodycontent %}{% endblock %}
+              </div>
+              <div class="clearfix"></div>
+            </b-container>
+          </b-card>
+        </div>
+        {# main content end #}
+      </div>
+    </div>
+
+    {# footer begin #}
+    {% block footer %}
+    <footer id="footer" class="bg-light">
+      <b-card no-body bg-variant="light">
+        <p>{{ app_name }} v.{{ app_version }}</p>
+        </b-card>
+    </footer>
+    {% endblock %}
+    {# footer end #}
+    {{ parent() }}
+
+  </div>
+{% endblock %}
+
+{% block javascripts %}
+  <script>
+  </script>
+  {{ parent() }}
+  {{ encore_entry_script_tags('app') }}
+{% endblock %}
