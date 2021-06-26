@@ -1,10 +1,19 @@
 index:
-    path: /
-    controller: App\Controller\DefaultController::index
+  path: /
+  controller: App\Controller\DefaultController::index
 
 app_login:
-    path: /login
-    controller: App\Controller\SecurityController::login
+  path: /login
+  controller: App\Controller\SecurityController::login
 
 app_logout:
-    path: /logout
+  path: /logout
+
+app_change_theme:
+  path: /change_theme
+  controller: App\Controller\ProfileController::changeTheme
+  methods: [POST]
+
+profile_theme:
+  path: /profile-theme
+  controller: App\Controller\ProfileController::themes

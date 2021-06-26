@@ -24,21 +24,21 @@ Encore.addPlugin(
     /*
      * ENTRY CONFIG
      *
-     * Add 1 entry for each "page" of your app
-     * (including one that's included on every page - e.g. "app")
-     *
      * Each entry will result in one JavaScript file (e.g. app.js)
      * and one CSS file (e.g. app.css) if your JavaScript imports CSS.
      */
-    .addEntry('login', './assets/js/login.js')
-    .addEntry('app', './assets/js/app.js')
+    .addEntry('login', './assets/login.js')
+    .addEntry('app', './assets/app.js')
+
+    // enables the Symfony UX Stimulus bridge (used in assets/bootstrap.js)
+    .enableStimulusBridge('./assets/controllers.json')
 
     // When enabled, Webpack "splits" your files into smaller pieces for greater optimization.
     .splitEntryChunks()
 
     // will require an extra script tag for runtime.js
     // but, you probably want this, unless you're building a single-page app
-    .disableSingleRuntimeChunk()
+    .enableSingleRuntimeChunk()
 
     /*
      * FEATURE CONFIG
@@ -55,6 +55,16 @@ Encore.addPlugin(
     // enables hashed filenames (e.g. app.abc123.css)
     .enableVersioning()
 
+    .configureBabel((config) => {
+        config.plugins.push('@babel/plugin-proposal-class-properties');
+    })
+
+    // enables @babel/preset-env polyfills
+    .configureBabelPresetEnv((config) => {
+        config.useBuiltIns = 'usage';
+        config.corejs = 3;
+    })
+
     .enableVueLoader()
     .enablePostCssLoader()
 
@@ -64,17 +74,28 @@ Encore.addPlugin(
     // uncomment if you use TypeScript
     //.enableTypeScriptLoader()
 
+    // uncomment if you use React
+    //.enableReactPreset()
+
     // uncomment to get integrity="..." attributes on your script & link tags
     // requires WebpackEncoreBundle 1.4 or higher
     //.enableIntegrityHashes(Encore.isProduction())
 
     // uncomment if you're having problems with a jQuery plugin
     //.autoProvidejQuery()
-
-    // uncomment if you use API Platform Admin (composer req api-admin)
-    //.enableReactPreset()
-    //.addEntry('admin', './assets/js/admin.js')
 ;
+
+// style themes
+const themes = require('./assets/styles/themes/themes.json')
+for (let i in themes) {
+  if (themes[i]['enabled']) {
+    //if (!Encore.isProduction() && themes[i]['name'] !== 'Default') {
+      //continue
+    //}
+    Encore.addStyleEntry('theme-'+themes[i]['css'],
+      './assets/styles/themes/'+themes[i]['scss']+'.scss')
+  }
+}
 
 module.exports = Encore.getWebpackConfig()
 

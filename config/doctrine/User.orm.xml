@@ -23,5 +23,10 @@
         <option name="fixed"/>
       </options>
     </field>
+    <field name="theme" type="string" column="theme" length="191" nullable="true">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
   </entity>
 </doctrine-mapping>

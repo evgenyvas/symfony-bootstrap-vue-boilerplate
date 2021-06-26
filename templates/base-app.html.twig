@@ -3,6 +3,7 @@
 {% block stylesheets %}
   {{ parent() }}
   {{ encore_entry_link_tags('app') }}
+  {{ encore_entry_link_tags('theme-' ~ app_style.currentTheme) }}
 {% endblock %}
 
 {% block body %}

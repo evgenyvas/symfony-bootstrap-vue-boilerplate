@@ -15,7 +15,9 @@
 {% block bodycontent %}
     {% for label, messages in app.flashes %}
         {% for message in messages %}
-            {% include '@CRUD/components/alert.html.twig' with {'mode': label, 'message': message} %}
+            <b-alert show variant="{{ label|default("success") }}">
+                {{ message|raw }}
+            </b-alert>
         {% endfor %}
     {% endfor %}
 

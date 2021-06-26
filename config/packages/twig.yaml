@@ -1,8 +1,11 @@
 twig:
     default_path: '%kernel.project_dir%/templates'
-    debug: '%kernel.debug%'
-    strict_variables: '%kernel.debug%'
-    exception_controller: null
     globals:
         app_name: '%app.name%'
         app_version: '%app.version%'
+        app_style: '@App\Service\Style'
+        theme_default: '%theme_default%'
+
+when@test:
+    twig:
+        strict_variables: true

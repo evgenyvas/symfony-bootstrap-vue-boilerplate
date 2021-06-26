@@ -52,6 +52,8 @@ class Menu
                     'type' => $child->getExtra('type'),
                     'active' => $child->getExtra('active'),
                     'item_class' => $child->getExtra('item_class'),
+                    'vue_component' => $child->getExtra('vue_component'),
+                    'vue_prop' => $child->getExtra('vue_prop'),
                     'submenu' => $submenu,
                 ];
             }

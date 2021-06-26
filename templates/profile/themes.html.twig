@@ -1,0 +1,18 @@
+{% extends 'base-app-layout.html.twig' %}
+
+{% block content %}
+  <div>
+    <form ref="themeChangeForm" action="{{ path('app_change_theme') }}" method="post">
+      <b-form-group>
+        <b-form-select id="theme_selector" v-model="themeSelected"
+            ref="themeSel" data-value="{{ user.theme }}"
+            name="new_theme"
+            :options="{{- themes_json|escape -}}"
+            value-field="css"
+            text-field="description"
+            @change="themeChange"
+        />
+      </b-form-group>
+    </form>
+  </div>
+{% endblock %}

@@ -9,6 +9,7 @@ Features
 - login form
 - bootstrap-vue integration
 - menu generator
+- bootswatch themes switcher
 
 Install
 -------

@@ -2,9 +2,13 @@
 
 namespace App\Entity;
 
+use App\Repository\UserRepository;
+use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Validator\Constraints as Assert;
 
-class User implements UserInterface
+class User implements UserInterface, PasswordAuthenticatedUserInterface
 {
     private $id;
 
@@ -15,6 +19,18 @@ class User implements UserInterface
     private $roles = [];
 
     private $password;
+
+    private $theme;
+
+    // validation rules
+    public static function loadValidatorMetadata(ClassMetadata $metadata) {
+        $metadata->addConstraint(new UniqueEntity([
+            'fields' => 'login',
+            'message' => 'User with this login already exists',
+        ]));
+        $metadata->addPropertyConstraint('name', new Assert\NotBlank());
+        $metadata->addPropertyConstraint('login', new Assert\NotBlank());
+    }
 
     public function getId(): ?int
     {
@@ -38,9 +54,14 @@ class User implements UserInterface
      *
      * @see UserInterface
      */
-    public function getUsername(): string
+    public function getUserIdentifier(): string
     {
         return (string) $this->login;
+    }
+
+    public function getUsername(): string
+    {
+        return $this->getUserIdentifier();
     }
 
     /**
@@ -63,11 +84,11 @@ class User implements UserInterface
     }
 
     /**
-     * @see UserInterface
+     * @see PasswordAuthenticatedUserInterface
      */
     public function getPassword(): string
     {
-        return (string) $this->password;
+        return $this->password;
     }
 
     public function setPassword(string $password): self
@@ -78,11 +99,14 @@ class User implements UserInterface
     }
 
     /**
+     * Returning a salt is only needed, if you are not using a modern
+     * hashing algorithm (e.g. bcrypt or sodium) in your security.yaml.
+     *
      * @see UserInterface
      */
-    public function getSalt()
+    public function getSalt(): ?string
     {
-        // not needed when using the "bcrypt" algorithm in security.yaml
+        return null;
     }
 
     /**
@@ -102,6 +126,18 @@ class User implements UserInterface
     public function setName(string $name): self
     {
         $this->name = $name;
+
+        return $this;
+    }
+
+    public function getTheme(): string
+    {
+        return $this->theme ?: 'default';
+    }
+
+    public function setTheme(?string $theme): self
+    {
+        $this->theme = ($theme === 'default') ? null : $theme;
 
         return $this;
     }

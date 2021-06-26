@@ -1,0 +1,156 @@
+[
+  {
+    "name": "Default",
+    "description": "Default theme",
+    "css": "default",
+    "scss": "default",
+    "enabled": true
+  },
+  {
+    "name": "Cerulean",
+    "description": "A calm blue sky",
+    "css": "cerulean",
+    "scss": "cerulean",
+    "enabled": true
+  },
+  {
+    "name": "Cosmo",
+    "description": "An ode to Metro",
+    "css": "cosmo",
+    "scss": "cosmo",
+    "enabled": true
+  },
+  {
+    "name": "Cyborg",
+    "description": "Jet black and electric blue",
+    "css": "cyborg",
+    "scss": "cyborg",
+    "enabled": true
+  },
+  {
+    "name": "Darkly",
+    "description": "Flatly in night mode",
+    "css": "darkly",
+    "scss": "darkly",
+    "enabled": true
+  },
+  {
+    "name": "Flatly",
+    "description": "Flat and modern",
+    "css": "flatly",
+    "scss": "flatly",
+    "enabled": true
+  },
+  {
+    "name": "Journal",
+    "description": "Crisp like a new sheet of paper",
+    "css": "journal",
+    "scss": "journal",
+    "enabled": true
+  },
+  {
+    "name": "Litera",
+    "description": "The medium is the message",
+    "css": "litera",
+    "scss": "litera",
+    "enabled": true
+  },
+  {
+    "name": "Lumen",
+    "description": "Light and shadow",
+    "css": "lumen",
+    "scss": "lumen",
+    "enabled": true
+  },
+  {
+    "name": "Lux",
+    "description": "A touch of class",
+    "css": "lux",
+    "scss": "lux",
+    "enabled": true
+  },
+  {
+    "name": "Materia",
+    "description": "Material is the metaphor",
+    "css": "materia",
+    "scss": "materia",
+    "enabled": true
+  },
+  {
+    "name": "Minty",
+    "description": "A fresh feel",
+    "css": "minty",
+    "scss": "minty",
+    "enabled": true
+  },
+  {
+    "name": "Pulse",
+    "description": "A trace of purple",
+    "css": "pulse",
+    "scss": "pulse",
+    "enabled": true
+  },
+  {
+    "name": "Sandstone",
+    "description": "A touch of warmth",
+    "css": "sandstone",
+    "scss": "sandstone",
+    "enabled": true
+  },
+  {
+    "name": "Simplex",
+    "description": "Mini and minimalist",
+    "css": "simplex",
+    "scss": "simplex",
+    "enabled": true
+  },
+  {
+    "name": "Sketchy",
+    "description": "A hand-drawn look for mockups and mirth",
+    "css": "sketchy",
+    "scss": "sketchy",
+    "enabled": false
+  },
+  {
+    "name": "Slate",
+    "description": "Shades of gunmetal gray",
+    "css": "slate",
+    "scss": "slate",
+    "enabled": true
+  },
+  {
+    "name": "Solar",
+    "description": "A spin on Solarized",
+    "css": "solar",
+    "scss": "solar",
+    "enabled": true
+  },
+  {
+    "name": "Spacelab",
+    "description": "Silvery and sleek",
+    "css": "spacelab",
+    "scss": "spacelab",
+    "enabled": true
+  },
+  {
+    "name": "Superhero",
+    "description": "The brave and the blue",
+    "css": "superhero",
+    "scss": "superhero",
+    "enabled": true
+  },
+  {
+    "name": "United",
+    "description": "Ubuntu orange and unique font",
+    "css": "united",
+    "scss": "united",
+    "enabled": true
+  },
+  {
+    "name": "Yeti",
+    "description": "A friendly foundation",
+    "css": "yeti",
+    "scss": "yeti",
+    "enabled": true
+  }
+]
