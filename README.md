@@ -18,6 +18,20 @@ Install
 composer install
 npm install
 npm run dev
+```
+
+Configure database connection in file `.env` or create new file `.env.local`:
+
+```
+APP_ENV=dev
+DB_DATABASE=app
+DB_USERNAME=dbuser
+DB_PASSWORD=dbpassword
+```
+
+Execute commands:
+
+```
 bin/console doctrine:database:create
 bin/console doctrine:migrations:diff
 bin/console doctrine:migrations:migrate
