@@ -15,28 +15,26 @@
 
   <div id="app" class="content-wrap">
     {# header begin #}
-    <header id="header">
     {% block header %}
       {% if toolbar_menu_type is not defined %}
         {% set toolbar_menu_type = 'main' %}
       {% endif %}
-      <app-toolbar
+      <app-toolbar id="header"
         :menu="{{ menu('toolbar', toolbar_menu_type)|json_encode }}"
       ></app-toolbar>
     {% endblock %}
-    </header>
     {# header end #}
 
-    <div id="content_wrap">
+    <div id="content_wrap" class="mt-2 mb-2">
       <div id="sidebar">
         {# sidebar begin #}
         {% block sidebar %}{% endblock %}
         {# sidebar end #}
       </div>
 
-      <div id="content">
+      <div id="content" class="ml-2 mr-2">
         {# main content begin #}
-        <div class="main-content mt-2 mb-2">
+        <div class="main-content">
           <b-card no-body bg-variant="light" class="main-content-container">
             <b-container fluid>
               <div class="body-content">
