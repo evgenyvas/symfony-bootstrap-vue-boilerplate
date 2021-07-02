@@ -98,8 +98,3 @@ for (let i in themes) {
 }
 
 module.exports = Encore.getWebpackConfig()
-
-// set alias for assets folder
-let config = Encore.getWebpackConfig()
-config.resolve.alias['~'] = path.resolve(__dirname, 'assets')
-module.exports = config

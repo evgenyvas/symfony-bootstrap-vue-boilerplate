@@ -8,8 +8,6 @@ import store from './modules/store'
 // start the Stimulus application
 import './bootstrap'
 
-global.bus = new Vue()
-
 var app = new Vue({
   data: {
   },
