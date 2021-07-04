@@ -1,5 +1,13 @@
 export default {
   template: `
+    <div>
+    <nav class="navbar">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">#</a>
+        </li>
+      </ul>
+    </nav>
     <b-navbar toggleable="md" type="dark" variant="dark" class="main-menu" fixed="top">
       <b-navbar-toggle target="nav_collapse"></b-navbar-toggle>
       <b-collapse is-nav id="nav_collapse">
@@ -36,6 +44,7 @@ export default {
         </b-navbar-nav>
       </b-collapse>
     </b-navbar>
+    </div>
   `,
   props: {
     menu: {
